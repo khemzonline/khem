@@ -1,11 +1,292 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import background from '../assets/background.webp';
+import profile from '../assets/pp.webp';
 ---
 
 <Layout>
-	<Welcome />
+  <div class="overflow-x-clip bg-[#040b1a] text-white antialiased">
+    <!-- ============ PAGE 1 — HOME ============ -->
+    <section id="home" class="snap-page relative flex min-h-screen flex-col overflow-hidden">
+      <img
+        src={background.src}
+        alt=""
+        fetchpriority="high"
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover object-[82%_center] opacity-90 sm:object-center"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#040b1a] via-[#040b1a]/90 to-[#040b1a]/20 sm:via-[#040b1a]/85 sm:to-[#040b1a]/10"></div>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#040b1a]/70 via-[#040b1a]/20 to-[#040b1a] sm:from-[#040b1a]/60 sm:via-transparent"></div>
+
+      <header class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-5 sm:px-6 sm:py-6">
+        <a href="#home" class="shrink-0 text-sm font-semibold tracking-[0.25em] text-white/90">
+          KHEM<span class="text-sky-400">.</span>
+        </a>
+        <nav class="hidden items-center gap-8 text-sm text-white/70 md:flex">
+          <a href="#home" class="text-white">Home</a>
+          <a href="#work" class="transition hover:text-white">Work</a>
+          <a href="#about" class="transition hover:text-white">About</a>
+          <a href="#contact" class="transition hover:text-white">Contact</a>
+        </nav>
+        <div class="flex shrink-0 items-center gap-2">
+          <button
+            id="menu-btn"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 backdrop-blur transition hover:text-white md:hidden"
+          >
+            <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </header>
+      <nav
+        id="mobile-menu"
+        class="relative z-20 mx-5 hidden flex-col gap-1 rounded-2xl border border-white/10 bg-[#060f24]/95 p-2 text-[15px] shadow-2xl backdrop-blur-md md:hidden"
+      >
+        <a href="#home" class="rounded-xl px-4 py-3 text-white transition hover:bg-white/5">Home</a>
+        <a href="#work" class="rounded-xl px-4 py-3 text-white/70 transition hover:bg-white/5 hover:text-white">Work</a>
+        <a href="#about" class="rounded-xl px-4 py-3 text-white/70 transition hover:bg-white/5 hover:text-white">About</a>
+        <a href="#contact" class="rounded-xl px-4 py-3 text-white/70 transition hover:bg-white/5 hover:text-white">Contact</a>
+      </nav>
+
+      <main class="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:items-start sm:px-6 sm:py-12 sm:text-left">
+        <div class="w-full max-w-xl">
+          <p class="mb-3 text-[11px] font-medium uppercase tracking-[0.3em] text-sky-300/90 sm:mb-4 sm:text-xs">
+            Freelance Developer
+          </p>
+          <h1 class="text-[2.6rem] font-semibold leading-[1.02] tracking-tight sm:text-6xl">
+            Khem Bhandari
+          </h1>
+          <p class="mt-3 text-lg text-white/80 sm:mt-4 sm:text-xl">
+            I create websites & build apps for multiplatform.
+          </p>
+          <p class="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-white/60 sm:mx-0 sm:mt-4 sm:text-base">
+            Simple, minimal, and reliable — designed to load fast and work everywhere.
+          </p>
+
+          <div class="mt-7 flex flex-row items-center justify-center gap-2.5 sm:mt-8 sm:justify-start sm:gap-3">
+            <a
+              href="#contact"
+              class="flex-1 whitespace-nowrap rounded-full bg-white px-4 py-3 text-center text-sm font-semibold text-[#040b1a] transition hover:bg-sky-200 sm:flex-none sm:px-6 sm:py-3"
+            >
+              Get in touch
+            </a>
+            <a
+              href="#work"
+              class="flex-1 whitespace-nowrap rounded-full border border-white/20 bg-white/5 px-4 py-3 text-center text-sm font-medium text-white/90 backdrop-blur transition hover:border-white/40 hover:text-white sm:flex-none sm:px-6 sm:py-3"
+            >
+              What I do
+            </a>
+          </div>
+
+          <div class="mt-8 hidden flex-wrap items-center justify-center gap-2.5 sm:mt-10 sm:flex sm:justify-start sm:gap-3">
+            <a href="#" aria-label="Phone" title="Phone — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="#" aria-label="Email" title="Email — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub" title="GitHub — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45Z"/></svg>
+            </a>
+            <a href="#" aria-label="X" title="X — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" title="Instagram — coming soon" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-sky-300/60 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- ============ PAGE 2 — WORK 50/50 ============ -->
+    <section id="work" class="snap-page relative flex min-h-screen scroll-mt-0 flex-col bg-[#040b1a]">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(56,189,248,0.12),transparent_70%)]"></div>
+
+      <div class="relative z-10 mx-auto w-full max-w-6xl px-5 pt-14 text-center sm:px-6 sm:pt-20">
+        <p class="reveal text-[11px] font-medium uppercase tracking-[0.3em] text-sky-300/90 sm:text-xs">What I do</p>
+        <h2 class="reveal mt-3 text-[1.7rem] font-semibold leading-tight tracking-tight sm:text-4xl" style="--reveal-delay:80ms">
+          Two things, done well.
+        </h2>
+      </div>
+
+      <div class="relative z-10 mx-auto grid w-full max-w-6xl flex-1 gap-4 px-5 py-8 sm:px-6 sm:py-12 md:grid-cols-2">
+        <!-- Left 50% — Websites -->
+        <article class="reveal group flex flex-col justify-center rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition-colors duration-500 hover:border-sky-300/30 sm:p-8 lg:p-12" style="--reveal-delay:120ms">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/15 text-sky-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <p class="text-xs font-medium uppercase tracking-[0.25em] text-white/40">01 — Websites</p>
+          <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Websites</h3>
+          <p class="mt-3 max-w-sm text-sm leading-relaxed text-white/60 sm:text-base">
+            Fast, minimal sites for business and personal brands — easy to update, optimized to convert visitors into customers.
+          </p>
+          <ul class="mt-6 space-y-2.5 text-sm text-white/70">
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>Business sites & landing pages</li>
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>SEO & speed optimized</li>
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>Clean, minimal design</li>
+          </ul>
+        </article>
+
+        <!-- Right 50% — Multiplatform Apps -->
+        <article class="reveal group flex flex-col justify-center rounded-3xl border border-white/10 bg-gradient-to-b from-sky-400/[0.08] to-white/[0.03] p-6 backdrop-blur-md transition-colors duration-500 hover:border-sky-300/30 sm:p-8 lg:p-12" style="--reveal-delay:220ms">
+          <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/15 text-sky-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <p class="text-xs font-medium uppercase tracking-[0.25em] text-white/40">02 — Apps</p>
+          <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Multiplatform Apps</h3>
+          <p class="mt-3 max-w-sm text-sm leading-relaxed text-white/60 sm:text-base">
+            One codebase that runs on iOS, Android, and web — faster to build, easier to maintain, consistent everywhere.
+          </p>
+          <ul class="mt-6 space-y-2.5 text-sm text-white/70">
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>iOS, Android & web from one codebase</li>
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>App store ready</li>
+            <li class="flex items-center gap-2.5"><span class="h-1 w-1 rounded-full bg-sky-300"></span>Maintainable & scalable</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 3 — ABOUT ============ -->
+    <section id="about" class="snap-page relative flex min-h-screen scroll-mt-0 flex-col justify-center overflow-hidden bg-[#040b1a]">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_40%_at_20%_20%,rgba(56,189,248,0.1),transparent_70%)]"></div>
+
+      <div class="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-14">
+        <!-- Profile image -->
+        <div class="reveal flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[300px] sm:max-w-[340px]">
+            <div class="absolute -inset-3 rounded-[2rem] bg-sky-400/10 blur-2xl"></div>
+            <img
+              src={profile.src}
+              alt="Khem Bhandari"
+              loading="lazy"
+              class="relative aspect-[3/4] h-auto w-full rounded-[1.75rem] border border-white/15 object-cover object-top shadow-2xl"
+            />
+            <div class="absolute bottom-4 left-4 right-4 text-center rounded-full border border-white/15 bg-[#040b1a]/80 px-4 py-1.5 text-xs text-white/80 backdrop-blur sm:left-4 sm:right-auto sm:text-center">
+              Khem Bhandari · Nepal → Worldwide
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="mx-auto w-full max-w-lg lg:mx-0">
+          <p class="reveal text-[11px] font-medium uppercase tracking-[0.3em] text-sky-300/90 sm:text-xs">About</p>
+          <h2 class="reveal mt-3 text-[1.7rem] font-semibold leading-tight tracking-tight sm:text-4xl" style="--reveal-delay:80ms">
+            Freelancer for websites & multiplatform apps.
+          </h2>
+          <p class="reveal mt-5 text-justify text-base leading-relaxed text-white/75" style="--reveal-delay:140ms">
+            I'm Khem Bhandari — I design, build, and launch simple, minimal
+            websites and apps for clients who want things fast, clean, and reliable.
+          </p>
+          <div class="reveal mt-5 space-y-4 text-justify text-sm leading-relaxed text-white/60 sm:text-[15px]" style="--reveal-delay:200ms">
+            <p>
+              <span class="font-semibold text-white/85">Websites:</span> business sites,
+              landing pages, and portfolios — optimized for speed, SEO basics,
+              and converting visitors into customers. No bloat, easy to update.
+            </p>
+            <p>
+              <span class="font-semibold text-white/85">Multiplatform apps:</span> one
+              codebase running on iOS, Android, and web — faster to build,
+              easier to maintain, and consistent everywhere. App-store ready.
+            </p>
+            <p>
+              Working with me is direct: you talk to me, I build it. Minimal by
+              design, clear pricing, and support after launch.
+            </p>
+          </div>
+
+          <div class="reveal mt-8 flex flex-wrap gap-3" style="--reveal-delay:260ms">
+            <a href="#work" class="rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm text-white/85 transition hover:border-white/40 hover:text-white">
+              See my work
+            </a>
+            <a href="#contact" class="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#040b1a] transition hover:bg-sky-200">
+              Hire me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 4 — CONTACT / FOOTER ============ -->
+    <section id="contact" class="relative flex scroll-mt-0 flex-col items-center bg-[#020714] px-5 py-14 text-center sm:px-6 sm:py-20">
+      <p class="reveal text-[11px] font-medium uppercase tracking-[0.3em] text-sky-300/90 sm:text-xs">Contact</p>
+      <h2 class="reveal mt-3 text-[1.7rem] font-semibold leading-tight tracking-tight sm:text-4xl" style="--reveal-delay:80ms">
+        Let's build something simple.
+      </h2>
+      <p class="reveal mt-4 max-w-md text-[15px] leading-relaxed text-white/60 sm:text-sm" style="--reveal-delay:140ms">
+        Number, email & social links coming soon — for now, tap an icon below.
+      </p>
+
+      <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3" style="--reveal-delay:200ms">
+        <a href="#" aria-label="Phone" title="Phone — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="#" aria-label="Email" title="Email — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub" title="GitHub — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45Z"/></svg>
+        </a>
+        <a href="#" aria-label="X" title="X — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram — coming soon" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-sky-300/60 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+      </div>
+
+      <footer class="mx-auto mt-12 flex w-full max-w-6xl flex-col items-center gap-2 text-xs text-white/40 sm:flex-row sm:justify-between">
+        <span>© {new Date().getFullYear()} Khem Bhandari</span>
+        <a href="#home" class="transition hover:text-white">Back to top ↑</a>
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => io.observe(el));
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    function setMenu(open) {
+      if (!mobileMenu || !menuBtn) return;
+      mobileMenu.classList.toggle('hidden', !open);
+      mobileMenu.classList.toggle('flex', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      iconOpen?.classList.toggle('hidden', open);
+      iconClose?.classList.toggle('hidden', !open);
+    }
+
+    menuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu?.classList.contains('hidden');
+      setMenu(!!isHidden);
+    });
+    mobileMenu?.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setMenu(false));
+    });
+  </script>
 </Layout>
